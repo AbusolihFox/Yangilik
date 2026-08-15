@@ -1,0 +1,372 @@
+# -*- coding: utf-8 -*-
+"""
+Har kuni ishga tushadigan asosiy skript:
+1. sources.py dagi barcha RSS manbalarni o'qiydi (agar manba doim
+   yomon baholansa, uni avtomatik chetlab o'tadi — pastga qarang)
+2. Mavzu bo'yicha (KEYWORDS) mos maqolalarni tanlaydi
+3. Oldin ko'rilmagan (seen_urls) va oxirgi 365 kun ichidagilarni oladi
+4. Har biriga ball beradi: yangilik (recency) + manba reytingi + mavzu reytingi
+5. Agar sobit (RSS) manbalardan yetarli/sifatli nomzod topilmasa —
+   Claude'ning veb-qidiruv vositasi orqali internetdan YANGI mos
+   manba/maqolalarni o'zi qidirib topadi (disfavored manbalarni
+   chetlab o'tishga urinadi)
+6. Eng yaxshi 1 tasini tanlaydi
+7. Claude API orqali o'zbek tilida sarlavha + 50-80 so'zlik xulosa yozadi
+8. Telegramga 👍/👎 tugmalari bilan yuboradi
+9. state.json ni yangilaydi
+"""
+
+import os
+import sys
+import json
+import hashlib
+import requests
+import feedparser
+from datetime import datetime, timezone
+from time import mktime
+
+from sources import SOURCES, KEYWORDS
+from state_store import load_state, save_state, prune_old_seen
+
+TELEGRAM_BOT_TOKEN = os.environ["TELEGRAM_BOT_TOKEN"]
+TELEGRAM_CHAT_ID = os.environ["TELEGRAM_CHAT_ID"]
+ANTHROPIC_API_KEY = os.environ["ANTHROPIC_API_KEY"]
+
+TELEGRAM_API = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}"
+MAX_AGE_DAYS = 365
+TOP_N = 1
+
+# Manba bali shu chegaradan past tushsa (ketma-ket 👎), o'sha manba
+# endi RSS orqali tekshirilmaydi va Claude'ga "bunga o'xshamagan,
+# yangi manba top" deb aytiladi.
+DISFAVOR_THRESHOLD = -3
+
+
+def short_id(url: str) -> str:
+    return hashlib.sha256(url.encode("utf-8")).hexdigest()[:10]
+
+
+def matched_keywords(text: str):
+    text_low = text.lower()
+    return [kw for kw in KEYWORDS if kw in text_low]
+
+
+def entry_datetime(entry):
+    for field in ("published_parsed", "updated_parsed"):
+        val = getattr(entry, field, None)
+        if val:
+            return datetime.fromtimestamp(mktime(val), tz=timezone.utc)
+    return datetime.now(timezone.utc)
+
+
+def disfavored_source_names(state):
+    return {
+        name for name, score in state["source_scores"].items()
+        if score <= DISFAVOR_THRESHOLD
+    }
+
+
+def collect_candidates(state):
+    now = datetime.now(timezone.utc)
+    candidates = []
+    disfavored = disfavored_source_names(state)
+
+    for src in SOURCES:
+        if src["name"] in disfavored:
+            print(f"[O'TKAZIB YUBORILDI] {src['name']} — doim yomon baholangan, endi tekshirilmaydi")
+            continue
+        try:
+            feed = feedparser.parse(src["rss"])
+        except Exception as e:
+            print(f"[OGOHLANTIRISH] {src['name']} o'qib bo'lmadi: {e}")
+            continue
+
+        for entry in getattr(feed, "entries", []):
+            url = getattr(entry, "link", None)
+            if not url:
+                continue
+            if url in state["seen_urls"]:
+                continue  # avval ko'rsatilgan
+
+            pub_dt = entry_datetime(entry)
+            age_days = (now - pub_dt).days
+            if age_days > MAX_AGE_DAYS or age_days < 0:
+                continue
+
+            title = getattr(entry, "title", "")
+            summary = getattr(entry, "summary", "") or getattr(entry, "description", "")
+            full_text = f"{title} {summary}"
+
+            topics = matched_keywords(full_text)
+            if not topics:
+                continue  # mavzuga mos kelmadi
+
+            # --- ball hisoblash ---
+            recency_score = max(0, (MAX_AGE_DAYS - age_days)) / MAX_AGE_DAYS * 10  # 0..10, yangi bo'lsa yuqori
+            source_score = state["source_scores"].get(src["name"], 0)
+            topic_score = sum(state["topic_scores"].get(t, 0) for t in topics)
+            total_score = recency_score + source_score + topic_score
+
+            candidates.append({
+                "url": url,
+                "title": title,
+                "summary_raw": summary,
+                "source": src["name"],
+                "topics": topics,
+                "date": pub_dt.isoformat(),
+                "score": total_score,
+            })
+
+    candidates.sort(key=lambda c: c["score"], reverse=True)
+    return candidates
+
+
+def pick_top(candidates, n=TOP_N):
+    """Iloji boricha har xil manbalardan tanlashga harakat qiladi."""
+    chosen = []
+    used_sources = set()
+    for c in candidates:
+        if len(chosen) >= n:
+            break
+        if c["source"] in used_sources and len(candidates) > n:
+            continue
+        chosen.append(c)
+        used_sources.add(c["source"])
+    # agar manba xilma-xilligi tufayli n taga yetmasa, qolganidan to'ldiramiz
+    if len(chosen) < n:
+        for c in candidates:
+            if len(chosen) >= n:
+                break
+            if c not in chosen:
+                chosen.append(c)
+    return chosen
+
+
+def discover_new_candidates(state, existing_candidates_count):
+    """
+    Sobit RSS ro'yxatidan yetarli/sifatli maqola topilmasa (yoki
+    yaxshi manbalar tugab qolsa), Claude'ning veb-qidiruv vositasi
+    orqali internetdan real vaqtda YANGI, hali sinab ko'rilmagan
+    manba va maqolalarni izlaydi. Doim yomon baholangan manbalarni
+    aytib, ulardan qochishni so'raydi.
+    """
+    import anthropic
+    client = anthropic.Anthropic(api_key=ANTHROPIC_API_KEY)
+
+    disfavored = sorted(disfavored_source_names(state))
+    avoid_text = ", ".join(disfavored) if disfavored else "(hozircha yo'q)"
+
+    known_sources = ", ".join(s["name"] for s in SOURCES)
+
+    prompt = f"""Sen tadqiqot-yangiliklar agentisan. Internetdan qidiruv vositasi
+orqali quyidagi mavzularda so'nggi 365 kun ichida chop etilgan, ishonchli
+manbalardan (universitetlar, biznes-maktablar, tan olingan tadqiqot
+nashrlari, psixologiya sahifalari) 3-5 ta maqola top:
+
+Mavzular: odamlarni boshqarish (people management), liderlik, o'z-o'zini
+boshqarish, motivatsiya, intizom (discipline), time management, ego,
+irodani boshqarish (willpower/self-control), his-hayajonli intellekt,
+qaror qabul qilish, ish joyidagi psixologiya, shaxsiy rivojlanish.
+
+Talablar:
+- Manbalar ishonchli va tan olingan bo'lishi kerak (masalan
+  universitet sahifalari, yirik biznes nashrlari, ilmiy-psixologik
+  jurnallar/sahifalar) — shaxsiy bloglar yoki tekshirilmagan saytlar EMAS.
+- Quyidagi manbalardan QOCH (bular allaqachon doim yomon baholangan):
+  {avoid_text}
+- Quyidagi manbalar allaqachon muntazam tekshiriladi, ularni TAKRORLAMA,
+  faqat ULARGA O'XSHASH lekin YANGI manbalarni top:
+  {known_sources}
+- Har bir natija uchun aniq, ishlaydigan URL bo'lishi shart.
+
+Javobni FAQAT quyidagi JSON massiv formatida qaytar, boshqa hech qanday
+matn, izoh yoki markdown belgilarisiz:
+
+[
+  {{"title": "...", "url": "https://...", "source_name": "...", "published_date": "YYYY-MM-DD yoki noaniq bo'lsa bo'sh", "snippet": "qisqa inglizcha tavsif"}}
+]"""
+
+    try:
+        resp = client.messages.create(
+            model="claude-sonnet-5",
+            max_tokens=2000,
+            tools=[{"type": "web_search_20250305", "name": "web_search"}],
+            messages=[{"role": "user", "content": prompt}],
+        )
+    except Exception as e:
+        print(f"[XATO] Yangi manba qidirishda muammo: {e}")
+        return []
+
+    # Javobdagi so'nggi matn blokini olamiz (web_search vositasi
+    # oraliq natijalar ham qaytarishi mumkin, bizga oxirgi yakuniy
+    # matn kerak)
+    text_blocks = [b.text for b in resp.content if getattr(b, "type", "") == "text"]
+    if not text_blocks:
+        print("[OGOHLANTIRISH] Qidiruv natijasida matn topilmadi.")
+        return []
+    raw = text_blocks[-1].strip()
+    raw = raw.strip("`")
+    if raw.lower().startswith("json"):
+        raw = raw[4:].strip()
+
+    try:
+        items = json.loads(raw)
+    except Exception as e:
+        print(f"[OGOHLANTIRISH] Qidiruv javobini JSON sifatida o'qib bo'lmadi: {e}")
+        return []
+
+    now = datetime.now(timezone.utc)
+    new_candidates = []
+    for item in items:
+        url = item.get("url")
+        if not url or url in state["seen_urls"]:
+            continue
+        title = item.get("title", "")
+        snippet = item.get("snippet", "")
+        source_name = item.get("source_name", "Noma'lum manba (internetdan topilgan)")
+        topics = matched_keywords(f"{title} {snippet}") or ["personal development"]
+
+        pub_date = item.get("published_date") or now.isoformat()
+        try:
+            pub_dt = datetime.fromisoformat(pub_date)
+            if pub_dt.tzinfo is None:
+                pub_dt = pub_dt.replace(tzinfo=timezone.utc)
+        except Exception:
+            pub_dt = now
+
+        age_days = max(0, (now - pub_dt).days)
+        recency_score = max(0, (MAX_AGE_DAYS - age_days)) / MAX_AGE_DAYS * 10
+        # yangi topilgan manbalarga ozgina "sinov" bali beriladi
+        discovery_bonus = 1.0
+
+        new_candidates.append({
+            "url": url,
+            "title": title,
+            "summary_raw": snippet,
+            "source": source_name,
+            "topics": topics,
+            "date": pub_dt.isoformat(),
+            "score": recency_score + discovery_bonus,
+            "discovered": True,
+        })
+
+    print(f"Internetdan topilgan yangi nomzodlar: {len(new_candidates)}")
+    return new_candidates
+
+
+def summarize_with_claude(article):
+    """Claude API orqali o'zbek tilida sarlavha + 50-80 so'zlik xulosa."""
+    import anthropic
+    client = anthropic.Anthropic(api_key=ANTHROPIC_API_KEY)
+
+    prompt = f"""Quyida ingliz tilidagi maqola sarlavhasi va tavsifi berilgan.
+Manba: {article['source']}
+Sarlavha: {article['title']}
+Tavsif: {article['summary_raw']}
+
+Vazifa:
+1. Sarlavhani o'zbek tiliga tarjima qil (qisqa, jozibali, 1 qator).
+2. Maqola mazmunidan 50-80 so'zdan iborat, lo'nda va aniq xulosa yoz — bu
+   biznes-menejment, o'z-o'zini boshqarish, motivatsiya, intizom yoki shu
+   kabi shaxsiy rivojlanish mavzusidagi ilmiy/amaliy xulosa bo'lishi kerak.
+   Faktlarni maqola mazmunidan olib, o'zingdan hech narsa to'qima.
+
+Javobni FAQAT quyidagi formatda qaytar, boshqa hech qanday izohsiz:
+SARLAVHA: <tarjima qilingan sarlavha>
+XULOSA: <50-80 so'zlik o'zbekcha xulosa>"""
+
+    resp = client.messages.create(
+        model="claude-haiku-4-5-20251001",
+        max_tokens=500,
+        messages=[{"role": "user", "content": prompt}],
+    )
+    text = resp.content[0].text.strip()
+
+    title_uz, summary_uz = article["title"], ""
+    for line in text.splitlines():
+        if line.upper().startswith("SARLAVHA:"):
+            title_uz = line.split(":", 1)[1].strip()
+        elif line.upper().startswith("XULOSA:"):
+            summary_uz = line.split(":", 1)[1].strip()
+    return title_uz, summary_uz
+
+
+def send_to_telegram(article, title_uz, summary_uz, article_id):
+    text = (
+        f"📌 <b>{title_uz}</b>\n\n"
+        f"{summary_uz}\n\n"
+        f"🔗 Manba: {article['source']}\n"
+        f"{article['url']}"
+    )
+    keyboard = {
+        "inline_keyboard": [[
+            {"text": "👍 Yaxshi", "callback_data": f"like|{article_id}"},
+            {"text": "👎 Yomon", "callback_data": f"dislike|{article_id}"},
+        ]]
+    }
+    r = requests.post(
+        f"{TELEGRAM_API}/sendMessage",
+        json={
+            "chat_id": TELEGRAM_CHAT_ID,
+            "text": text,
+            "parse_mode": "HTML",
+            "reply_markup": keyboard,
+            "disable_web_page_preview": False,
+        },
+        timeout=30,
+    )
+    r.raise_for_status()
+    return r.json()["result"]["message_id"]
+
+
+def main():
+    state = load_state()
+    candidates = collect_candidates(state)
+    print(f"RSS manbalardan topilgan nomzodlar: {len(candidates)}")
+
+    # Agar sobit manbalardan yetarli nomzod topilmasa (masalan,
+    # ko'p manba disfavored bo'lib qolgan bo'lsa) — internetdan
+    # yangi manba/maqola qidiramiz.
+    if len(candidates) < TOP_N:
+        candidates += discover_new_candidates(state, len(candidates))
+        candidates.sort(key=lambda c: c["score"], reverse=True)
+
+    if not candidates:
+        print("Mos yangilik topilmadi (RSS'da ham, qidiruvda ham). Bugun xabar yuborilmaydi.")
+        return
+
+    chosen = pick_top(candidates, TOP_N)
+
+    for article in chosen:
+        try:
+            title_uz, summary_uz = summarize_with_claude(article)
+        except Exception as e:
+            print(f"[XATO] Xulosa yozishda muammo: {e}")
+            continue
+
+        article_id = short_id(article["url"])
+        try:
+            message_id = send_to_telegram(article, title_uz, summary_uz, article_id)
+        except Exception as e:
+            print(f"[XATO] Telegramga yuborishda muammo: {e}")
+            continue
+
+        state["seen_urls"][article["url"]] = {
+            "date": article["date"],
+            "source": article["source"],
+            "topics": article["topics"],
+        }
+        state["pending_feedback"][article_id] = {
+            "url": article["url"],
+            "source": article["source"],
+            "topics": article["topics"],
+            "message_id": message_id,
+        }
+        print(f"Yuborildi: {title_uz}")
+
+    prune_old_seen(state, MAX_AGE_DAYS)
+    save_state(state)
+
+
+if __name__ == "__main__":
+    main()
