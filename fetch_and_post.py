@@ -11,7 +11,7 @@ Har kuni ishga tushadigan asosiy skript:
    manba/maqolalarni o'zi qidirib topadi (disfavored manbalarni
    chetlab o'tishga urinadi)
 6. Eng yaxshi 1 tasini tanlaydi
-7. Claude API orqali o'zbek tilida sarlavha + 50-80 so'zlik xulosa yozadi
+7. Claude API orqali o'zbek tilida sarlavha + 100-150 so'zlik xulosa yozadi
 8. Telegramga 👍/👎 tugmalari bilan yuboradi
 9. state.json ni yangilaydi
 """
@@ -255,7 +255,7 @@ matn, izoh yoki markdown belgilarisiz:
 
 
 def summarize_with_claude(article):
-    """Claude API orqali o'zbek tilida sarlavha + 50-80 so'zlik xulosa."""
+    """Claude API orqali o'zbek tilida sarlavha + 100-150 so'zlik xulosa."""
     import anthropic
     client = anthropic.Anthropic(api_key=ANTHROPIC_API_KEY)
 
@@ -266,7 +266,7 @@ Tavsif: {article['summary_raw']}
 
 Vazifa:
 1. Sarlavhani o'zbek tiliga tarjima qil (qisqa, jozibali, 1 qator).
-2. Maqola mazmunidan 50-80 so'zdan iborat, lo'nda va aniq xulosa yoz — bu
+2. Maqola mazmunidan 100-150 so'zdan iborat, lo'nda va aniq xulosa yoz — bu
    biznes-menejment, o'z-o'zini boshqarish, motivatsiya, intizom yoki shu
    kabi shaxsiy rivojlanish mavzusidagi ilmiy/amaliy xulosa bo'lishi kerak.
    Faktlarni maqola mazmunidan olib, o'zingdan hech narsa to'qima.
