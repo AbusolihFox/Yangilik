@@ -1,0 +1,38 @@
+name: Kunlik yangilik yuborish
+
+on:
+  schedule:
+    # Har kuni soat 03:00 UTC = 08:00 Toshkent vaqti (UTC+5)
+    - cron: "0 3 * * *"
+  workflow_dispatch: {}   # GitHub sahifasidan qo'lda ham ishga tushirish mumkin
+
+permissions:
+  contents: write
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Kutubxonalarni o'rnatish
+        run: pip install -r requirements.txt
+
+      - name: Skriptni ishga tushirish
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python fetch_and_post.py
+
+      - name: state.json o'zgarishlarini saqlash
+        run: |
+          git config user.name "uni-news-bot"
+          git config user.email "actions@github.com"
+          git add state.json
+          git diff --quiet --cached || git commit -m "state.json yangilandi (kunlik post)"
+          git push
