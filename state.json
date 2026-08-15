@@ -1,7 +1,26 @@
 {
-  "seen_urls": {},
+  "seen_urls": {
+    "https://www.fastcompany.com/91588526/who-is-pointing-out-your-blindspots?partner=rss&utm_source=rss&utm_medium=feed&utm_campaign=rss+fastcompany&utm_content=rss": {
+      "date": "2026-08-15T05:00:00+00:00",
+      "source": "Fast Company — Leadership",
+      "topics": [
+        "leadership",
+        "management"
+      ]
+    }
+  },
   "source_scores": {},
   "topic_scores": {},
-  "pending_feedback": {},
+  "pending_feedback": {
+    "4bd771c3cc": {
+      "url": "https://www.fastcompany.com/91588526/who-is-pointing-out-your-blindspots?partner=rss&utm_source=rss&utm_medium=feed&utm_campaign=rss+fastcompany&utm_content=rss",
+      "source": "Fast Company — Leadership",
+      "topics": [
+        "leadership",
+        "management"
+      ],
+      "message_id": 6
+    }
+  },
   "last_update_id": 0
 }
