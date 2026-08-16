@@ -28,6 +28,13 @@
         "focus",
         "mindset"
       ]
+    },
+    "https://sloanreview.mit.edu/article/why-water-management-is-a-strategic-concern/": {
+      "date": "2026-08-13T11:00:28+00:00",
+      "source": "MIT Sloan Management Review",
+      "topics": [
+        "management"
+      ]
     }
   },
   "source_scores": {},
@@ -64,6 +71,14 @@
         "mindset"
       ],
       "message_id": 8
+    },
+    "c8de8c0b14": {
+      "url": "https://sloanreview.mit.edu/article/why-water-management-is-a-strategic-concern/",
+      "source": "MIT Sloan Management Review",
+      "topics": [
+        "management"
+      ],
+      "message_id": 9
     }
   },
   "last_update_id": 158813808
