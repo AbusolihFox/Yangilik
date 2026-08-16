@@ -1,11 +1,14 @@
 # -*- coding: utf-8 -*-
 """
-Bu skript tez-tez (masalan, har 15 daqiqada) ishga tushib,
-Telegramda foydalanuvchi bosgan 👍/👎 tugmalarni tekshiradi va
-kelasi safar qanday yangilik tanlash kerakligini "o'rgatadi":
+Bu skript kuniga bir marta (kun oxirida) ishga tushib, Telegramda
+foydalanuvchi bosgan 👍/👎 tugmalarni tekshiradi va kelasi safar
+qanday yangilik tanlash kerakligini "o'rgatadi":
 
 - 👍 bosilsa: shu maqolaning manbasi va mavzu-teglariga +1 ball
-- 👎 bosilsa: -1 ball
+- 👎 bosilsa: -1 ball (shu manba/mavzudan kamroq maqola tanlanadi)
+- Hech narsa BOSILMASA: bu ham "yoqdi" deb hisoblanadi (+1 ball) —
+  chunki javob kutilayotgan xabar bir kun o'tgach avtomatik
+  "yoqdi" deb yopiladi.
 
 Telegramning o'zida "webhook server" saqlab turish shart emas —
 getUpdates orqali oddiy so'rov (polling) yetarli.
@@ -17,6 +20,7 @@ import requests
 from state_store import load_state, save_state
 
 TELEGRAM_BOT_TOKEN = os.environ["TELEGRAM_BOT_TOKEN"]
+TELEGRAM_CHAT_ID = os.environ["TELEGRAM_CHAT_ID"]
 TELEGRAM_API = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}"
 
 
@@ -40,6 +44,13 @@ def edit_message_markup(chat_id, message_id, result_text):
     )
 
 
+def apply_feedback(state, article_id, info, delta):
+    state["source_scores"][info["source"]] = state["source_scores"].get(info["source"], 0) + delta
+    for topic in info["topics"]:
+        state["topic_scores"][topic] = state["topic_scores"].get(topic, 0) + delta
+    del state["pending_feedback"][article_id]
+
+
 def main():
     state = load_state()
     offset = state.get("last_update_id", 0)
@@ -52,9 +63,7 @@ def main():
     r.raise_for_status()
     updates = r.json().get("result", [])
 
-    if not updates:
-        print("Yangi bosilgan tugma yo'q.")
-        return
+    answered_ids = set()
 
     for update in updates:
         state["last_update_id"] = max(state["last_update_id"], update["update_id"])
@@ -79,16 +88,26 @@ def main():
 
         delta = 1 if action == "like" else -1 if action == "dislike" else 0
 
-        state["source_scores"][info["source"]] = state["source_scores"].get(info["source"], 0) + delta
-        for topic in info["topics"]:
-            state["topic_scores"][topic] = state["topic_scores"].get(topic, 0) + delta
+        apply_feedback(state, article_id, info, delta)
+        answered_ids.add(article_id)
 
         result_label = "✅ Baholadingiz: Yaxshi" if delta > 0 else "✅ Baholadingiz: Yomon"
         answer_callback(cq["id"], "Rahmat! Kelasi tanlovlarga hisobga olamiz.")
         edit_message_markup(chat_id, message_id, result_label)
 
-        del state["pending_feedback"][article_id]
         print(f"Baho qabul qilindi: {action} -> {info['source']}")
+
+    # Hali javob kutayotgan (bosilmagan) qolgan barcha xabarlar —
+    # bir kun o'tgani uchun "yoqdi" deb hisoblanadi.
+    remaining = list(state["pending_feedback"].items())
+    for article_id, info in remaining:
+        if article_id in answered_ids:
+            continue
+        message_id = info.get("message_id")
+        apply_feedback(state, article_id, info, delta=1)
+        if message_id:
+            edit_message_markup(TELEGRAM_CHAT_ID, message_id, "✅ Baho berilmadi — yoqqan deb hisoblandi")
+        print(f"Javobsiz qoldi, avtomatik 'yoqdi' deb hisoblandi -> {info['source']}")
 
     save_state(state)
 
