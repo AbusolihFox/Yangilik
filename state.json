@@ -37,49 +37,21 @@
       ]
     }
   },
-  "source_scores": {},
-  "topic_scores": {},
-  "pending_feedback": {
-    "4bd771c3cc": {
-      "url": "https://www.fastcompany.com/91588526/who-is-pointing-out-your-blindspots?partner=rss&utm_source=rss&utm_medium=feed&utm_campaign=rss+fastcompany&utm_content=rss",
-      "source": "Fast Company — Leadership",
-      "topics": [
-        "leadership",
-        "management"
-      ],
-      "message_id": 6
-    },
-    "db59655a0e": {
-      "url": "https://www.fastcompany.com/91586514/the-resilience-gap-why-corporate-reputation-in-the-age-of-ai-demands-more-than-just-trust-technology-ai-leadership-resiience?partner=rss&utm_source=rss&utm_medium=feed&utm_campaign=rss+fastcompany&utm_content=rss",
-      "source": "Fast Company — Leadership",
-      "topics": [
-        "leadership",
-        "focus",
-        "resilience"
-      ],
-      "message_id": 7
-    },
-    "9ad3dfce71": {
-      "url": "https://www.fastcompany.com/91589261/holiday-hoarding-is-a-workplace-crisis?partner=rss&utm_source=rss&utm_medium=feed&utm_campaign=rss+fastcompany&utm_content=rss",
-      "source": "Fast Company — Leadership",
-      "topics": [
-        "habit",
-        "habits",
-        "productivity",
-        "burnout",
-        "focus",
-        "mindset"
-      ],
-      "message_id": 8
-    },
-    "c8de8c0b14": {
-      "url": "https://sloanreview.mit.edu/article/why-water-management-is-a-strategic-concern/",
-      "source": "MIT Sloan Management Review",
-      "topics": [
-        "management"
-      ],
-      "message_id": 9
-    }
+  "source_scores": {
+    "Fast Company — Leadership": 1,
+    "MIT Sloan Management Review": -1
   },
-  "last_update_id": 158813808
+  "topic_scores": {
+    "habit": -1,
+    "habits": -1,
+    "productivity": -1,
+    "burnout": -1,
+    "focus": 0,
+    "mindset": -1,
+    "management": 0,
+    "leadership": 2,
+    "resilience": 1
+  },
+  "pending_feedback": {},
+  "last_update_id": 158813813
 }
