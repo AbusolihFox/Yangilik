@@ -16,6 +16,18 @@
         "focus",
         "resilience"
       ]
+    },
+    "https://www.fastcompany.com/91589261/holiday-hoarding-is-a-workplace-crisis?partner=rss&utm_source=rss&utm_medium=feed&utm_campaign=rss+fastcompany&utm_content=rss": {
+      "date": "2026-08-16T05:00:00+00:00",
+      "source": "Fast Company — Leadership",
+      "topics": [
+        "habit",
+        "habits",
+        "productivity",
+        "burnout",
+        "focus",
+        "mindset"
+      ]
     }
   },
   "source_scores": {},
@@ -39,6 +51,19 @@
         "resilience"
       ],
       "message_id": 7
+    },
+    "9ad3dfce71": {
+      "url": "https://www.fastcompany.com/91589261/holiday-hoarding-is-a-workplace-crisis?partner=rss&utm_source=rss&utm_medium=feed&utm_campaign=rss+fastcompany&utm_content=rss",
+      "source": "Fast Company — Leadership",
+      "topics": [
+        "habit",
+        "habits",
+        "productivity",
+        "burnout",
+        "focus",
+        "mindset"
+      ],
+      "message_id": 8
     }
   },
   "last_update_id": 158813808
