@@ -268,25 +268,33 @@ Vazifa:
 1. Sarlavhani o'zbek tiliga tarjima qil — SO'ZMA-SO'Z EMAS, balki tabiiy,
    ravon va jozibali o'zbek tilida, xuddi tajribali jurnalist yozgandek.
    Ingliz tilidagi gap tuzilishini emas, o'zbek tilining o'z tabiiy
-   uslubini ishlat (masalan, inglizcha gerund/passiv qurilmalarni
-   to'g'ridan-to'g'ri tarjima qilma, o'zbekcha faol va oddiy gap bilan ber).
-2. Maqola mazmunidan 100-150 so'zdan iborat, lo'nda va aniq xulosa yoz — bu
-   biznes-menejment, o'z-o'zini boshqarish, motivatsiya, intizom yoki shu
-   kabi shaxsiy rivojlanish mavzusidagi ilmiy/amaliy xulosa bo'lishi kerak.
-   Faktlarni maqola mazmunidan olib, o'zingdan hech narsa to'qima.
-   Xulosani ham TABIIY, RAVON o'zbek tilida yoz — o'qilishi oson,
-   tushunarli va professional bo'lsin, tarjima qilingandek emas, xuddi
-   o'zbek tilida yozilgandek tuyulsin. Umumiy so'z birikmalar va
-   iboralarni ishlatishdan qochma, lekin sun'iy yoki noqulay qurilmalarga
-   yo'l qo'yma.
+   uslubini ishlat.
+
+2. XULOSA ALBATTA KAMIDA 100, KO'PI BILAN 150 SO'ZDAN IBORAT BO'LISHI SHART.
+   Bu qat'iy talab — 80-90 so'zlik xulosa yetarli emas.
+   Agar maqolaning qisqa tavsifi o'zi 100 so'zga yetmasa, quyidagilar
+   bilan boyitib yoz (lekin FAKT TO'QIMA — faqat mavjud mazmunga tayan):
+   - Bu topilma yoki fikr nima uchun muhim, kimga foydali
+   - Bu amaliyotda qanday qo'llanilishi mumkin
+   - Mavzuning kengroq konteksti (masalan, nega bu boshqaruv/motivatsiya
+     sohasida muhim mavzu)
+   Xulosa — biznes-menejment, o'z-o'zini boshqarish, motivatsiya, intizom
+   yoki shu kabi shaxsiy rivojlanish mavzusidagi ilmiy/amaliy xulosa
+   bo'lishi kerak. Xulosani TABIIY, RAVON o'zbek tilida yoz — o'qilishi
+   oson, tushunarli va professional bo'lsin, xuddi o'zbek tilida
+   yozilgandek tuyulsin, tarjima qilingandek emas.
+
+3. Javob yozib bo'lgach, XULOSA qismidagi so'zlarni o'zing sanab chiq.
+   Agar 100 so'zdan kam bo'lsa, uni kengaytirib qayta yoz — faqat
+   shundan keyin javobni yakuniy shaklda qaytar.
 
 Javobni FAQAT quyidagi formatda qaytar, boshqa hech qanday izohsiz:
 SARLAVHA: <tarjima qilingan sarlavha>
 XULOSA: <100-150 so'zlik o'zbekcha xulosa>"""
 
     resp = client.messages.create(
-        model="claude-haiku-4-5-20251001",
-        max_tokens=800,
+        model="claude-sonnet-5",
+        max_tokens=1200,
         messages=[{"role": "user", "content": prompt}],
     )
     text = resp.content[0].text.strip()
@@ -333,49 +341,4 @@ def main():
     candidates = collect_candidates(state)
     print(f"RSS manbalardan topilgan nomzodlar: {len(candidates)}")
 
-    # Agar sobit manbalardan yetarli nomzod topilmasa (masalan,
-    # ko'p manba disfavored bo'lib qolgan bo'lsa) — internetdan
-    # yangi manba/maqola qidiramiz.
-    if len(candidates) < TOP_N:
-        candidates += discover_new_candidates(state, len(candidates))
-        candidates.sort(key=lambda c: c["score"], reverse=True)
-
-    if not candidates:
-        print("Mos yangilik topilmadi (RSS'da ham, qidiruvda ham). Bugun xabar yuborilmaydi.")
-        return
-
-    chosen = pick_top(candidates, TOP_N)
-
-    for article in chosen:
-        try:
-            title_uz, summary_uz = summarize_with_claude(article)
-        except Exception as e:
-            print(f"[XATO] Xulosa yozishda muammo: {e}")
-            continue
-
-        article_id = short_id(article["url"])
-        try:
-            message_id = send_to_telegram(article, title_uz, summary_uz, article_id)
-        except Exception as e:
-            print(f"[XATO] Telegramga yuborishda muammo: {e}")
-            continue
-
-        state["seen_urls"][article["url"]] = {
-            "date": article["date"],
-            "source": article["source"],
-            "topics": article["topics"],
-        }
-        state["pending_feedback"][article_id] = {
-            "url": article["url"],
-            "source": article["source"],
-            "topics": article["topics"],
-            "message_id": message_id,
-        }
-        print(f"Yuborildi: {title_uz}")
-
-    prune_old_seen(state, MAX_AGE_DAYS)
-    save_state(state)
-
-
-if __name__ == "__main__":
-    main()
+    # Agar sobit manbalardan yetarli nomzod
