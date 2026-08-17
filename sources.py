@@ -21,17 +21,31 @@ SOURCES = [
     {"name": "Yale Insights", "rss": "https://insights.som.yale.edu/rss.xml", "category": "business_school"},
     {"name": "Columbia Business School — Ideas at Work", "rss": "https://businessinsights.bloomberg.com/feed/", "category": "business_school"},
     {"name": "INSEAD Knowledge", "rss": "https://knowledge.insead.edu/rss.xml", "category": "business_school"},
+    {"name": "Kellogg Insight (Northwestern)", "rss": "https://insight.kellogg.northwestern.edu/rss", "category": "business_school"},
+    {"name": "Chicago Booth Review", "rss": "https://www.chicagobooth.edu/review/rss.xml", "category": "business_school"},
+    {"name": "London Business School — Think", "rss": "https://www.london.edu/think/rss", "category": "business_school"},
+    {"name": "Rotman Insights Hub (Toronto)", "rss": "https://www.rotman.utoronto.ca/insightshub/rss", "category": "business_school"},
+    {"name": "Cambridge Judge Business School — Insight", "rss": "https://www.jbs.cam.ac.uk/insight/feed/", "category": "business_school"},
+    {"name": "Oxford Saïd Business School", "rss": "https://www.sbs.ox.ac.uk/rss.xml", "category": "business_school"},
+    {"name": "Darden Ideas to Action (Virginia)", "rss": "https://ideas.darden.virginia.edu/rss.xml", "category": "business_school"},
 
     # --- Mashhur biznes jurnallari / tadqiqot nashrlari ---
     {"name": "Harvard Business Review", "rss": "https://hbr.org/feed", "category": "magazine"},
     {"name": "McKinsey & Company", "rss": "https://www.mckinsey.com/insights/rss", "category": "magazine"},
     {"name": "Fast Company — Leadership", "rss": "https://www.fastcompany.com/leadership/rss", "category": "magazine"},
     {"name": "Forbes — Leadership", "rss": "https://www.forbes.com/leadership/feed/", "category": "magazine"},
+    {"name": "Inc.com", "rss": "https://www.inc.com/rss.xml", "category": "magazine"},
+    {"name": "Entrepreneur", "rss": "https://www.entrepreneur.com/latest.rss", "category": "magazine"},
+    {"name": "Fortune — Leadership", "rss": "https://fortune.com/feed/", "category": "magazine"},
 
     # --- Psixologiya sahifalari ---
     {"name": "Psychology Today", "rss": "https://www.psychologytoday.com/us/rss.xml", "category": "psychology"},
     {"name": "APA — American Psychological Association", "rss": "https://www.apa.org/news/rss/apa-news.rss", "category": "psychology"},
     {"name": "Greater Good Magazine (Berkeley)", "rss": "https://greatergood.berkeley.edu/feeds/all", "category": "psychology"},
+    {"name": "Behavioral Scientist", "rss": "https://behavioralscientist.org/feed/", "category": "psychology"},
+    {"name": "Big Think", "rss": "https://bigthink.com/feed/", "category": "psychology"},
+    {"name": "Verywell Mind", "rss": "https://www.verywellmind.com/feed", "category": "psychology"},
+    {"name": "Mindful.org", "rss": "https://www.mindful.org/feed/", "category": "psychology"},
 ]
 
 # Mavzu bo'yicha filtr — sarlavha/tavsifda shu so'zlardan biri
