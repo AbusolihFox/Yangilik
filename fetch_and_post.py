@@ -121,6 +121,59 @@ def collect_candidates(state):
     return candidates
 
 
+def collect_fallback_candidates(state):
+    """
+    Oxirgi chora: agar mavzuga MOS keladigan hech narsa topilmasa,
+    RSS manbalardagi eng so'nggi, hali ko'rilmagan maqolalarni
+    (mavzu mosligi shart emas) qaytaradi — bular orasidan eng
+    yangisi tanlanadi va Telegramga "aynan mos kelmadi" degan
+    ogohlantirish bilan yuboriladi.
+    """
+    now = datetime.now(timezone.utc)
+    candidates = []
+    disfavored = disfavored_source_names(state)
+
+    for src in SOURCES:
+        if src["name"] in disfavored:
+            continue
+        try:
+            feed = feedparser.parse(src["rss"])
+        except Exception:
+            continue
+
+        for entry in getattr(feed, "entries", []):
+            url = getattr(entry, "link", None)
+            if not url or url in state["seen_urls"]:
+                continue
+
+            pub_dt = entry_datetime(entry)
+            age_days = (now - pub_dt).days
+            if age_days > MAX_AGE_DAYS or age_days < 0:
+                continue
+
+            title = getattr(entry, "title", "")
+            summary = getattr(entry, "summary", "") or getattr(entry, "description", "")
+            topics = matched_keywords(f"{title} {summary}")
+
+            recency_score = max(0, (MAX_AGE_DAYS - age_days)) / MAX_AGE_DAYS * 10
+            source_score = state["source_scores"].get(src["name"], 0)
+
+            candidates.append({
+                "url": url,
+                "title": title,
+                "summary_raw": summary,
+                "source": src["name"],
+                "topics": topics if topics else ["eng yaqin topilgan"],
+                "date": pub_dt.isoformat(),
+                "score": recency_score + source_score,
+                "is_fallback": True,
+            })
+
+    candidates.sort(key=lambda c: c["score"], reverse=True)
+    print(f"Zaxira (mavzu mos kelmasa ham) nomzodlar: {len(candidates)}")
+    return candidates
+
+
 def pick_top(candidates, n=TOP_N):
     """Iloji boricha har xil manbalardan tanlashga harakat qiladi."""
     chosen = []
@@ -259,10 +312,19 @@ def summarize_with_claude(article):
     import anthropic
     client = anthropic.Anthropic(api_key=ANTHROPIC_API_KEY)
 
+    topic_note = ""
+    if article.get("is_fallback"):
+        topic_note = """
+ESLATMA: bu maqola aynan biznes-menejment/shaxsiy rivojlanish mavzusiga
+to'g'ridan-to'g'ri mos kelmasligi mumkin (bugun mos mavzuda boshqa
+yangilik topilmadi). Xulosani maqola MAZMUNIGA sodiq holda yoz — uni
+sun'iy ravishda menejment mavzusiga "cho'zib" bog'lashga urinma."""
+
     prompt = f"""Quyida ingliz tilidagi maqola sarlavhasi va tavsifi berilgan.
 Manba: {article['source']}
 Sarlavha: {article['title']}
 Tavsif: {article['summary_raw']}
+{topic_note}
 
 Vazifa:
 1. Sarlavhani o'zbek tiliga tarjima qil — SO'ZMA-SO'Z EMAS, balki tabiiy,
@@ -276,11 +338,8 @@ Vazifa:
    bilan boyitib yoz (lekin FAKT TO'QIMA — faqat mavjud mazmunga tayan):
    - Bu topilma yoki fikr nima uchun muhim, kimga foydali
    - Bu amaliyotda qanday qo'llanilishi mumkin
-   - Mavzuning kengroq konteksti (masalan, nega bu boshqaruv/motivatsiya
-     sohasida muhim mavzu)
-   Xulosa — biznes-menejment, o'z-o'zini boshqarish, motivatsiya, intizom
-   yoki shu kabi shaxsiy rivojlanish mavzusidagi ilmiy/amaliy xulosa
-   bo'lishi kerak. Xulosani TABIIY, RAVON o'zbek tilida yoz — o'qilishi
+   - Mavzuning kengroq konteksti
+   Xulosani TABIIY, RAVON o'zbek tilida yoz — o'qilishi
    oson, tushunarli va professional bo'lsin, xuddi o'zbek tilida
    yozilgandek tuyulsin, tarjima qilingandek emas.
 
@@ -309,8 +368,11 @@ XULOSA: <100-150 so'zlik o'zbekcha xulosa>"""
 
 
 def send_to_telegram(article, title_uz, summary_uz, article_id):
+    prefix = ""
+    if article.get("is_fallback"):
+        prefix = "⚠️ <i>Bugun aynan mos mavzuda yangilik topilmadi — eng yaqin kelgan maqola:</i>\n\n"
     text = (
-        f"📌 <b>{title_uz}</b>\n\n"
+        f"{prefix}📌 <b>{title_uz}</b>\n\n"
         f"{summary_uz}\n\n"
         f"🔗 Manba: {article['source']}\n"
         f"{article['url']}"
@@ -341,4 +403,54 @@ def main():
     candidates = collect_candidates(state)
     print(f"RSS manbalardan topilgan nomzodlar: {len(candidates)}")
 
-    # Agar sobit manbalardan yetarli nomzod
+    # Agar sobit manbalardan yetarli nomzod topilmasa (masalan,
+    # ko'p manba disfavored bo'lib qolgan bo'lsa) — internetdan
+    # yangi manba/maqola qidiramiz.
+    if len(candidates) < TOP_N:
+        candidates += discover_new_candidates(state, len(candidates))
+        candidates.sort(key=lambda c: c["score"], reverse=True)
+
+    # Oxirgi chora: hali ham hech narsa topilmasa, mavzu mosligidan
+    # qat'i nazar eng so'nggi maqolani yuboramiz.
+    if not candidates:
+        candidates = collect_fallback_candidates(state)
+
+    if not candidates:
+        print("Hech qanday (hatto zaxira) yangilik ham topilmadi. Bugun xabar yuborilmaydi.")
+        return
+
+    chosen = pick_top(candidates, TOP_N)
+
+    for article in chosen:
+        try:
+            title_uz, summary_uz = summarize_with_claude(article)
+        except Exception as e:
+            print(f"[XATO] Xulosa yozishda muammo: {e}")
+            continue
+
+        article_id = short_id(article["url"])
+        try:
+            message_id = send_to_telegram(article, title_uz, summary_uz, article_id)
+        except Exception as e:
+            print(f"[XATO] Telegramga yuborishda muammo: {e}")
+            continue
+
+        state["seen_urls"][article["url"]] = {
+            "date": article["date"],
+            "source": article["source"],
+            "topics": article["topics"],
+        }
+        state["pending_feedback"][article_id] = {
+            "url": article["url"],
+            "source": article["source"],
+            "topics": article["topics"],
+            "message_id": message_id,
+        }
+        print(f"Yuborildi: {title_uz}")
+
+    prune_old_seen(state, MAX_AGE_DAYS)
+    save_state(state)
+
+
+if __name__ == "__main__":
+    main()
