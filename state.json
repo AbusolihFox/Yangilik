@@ -35,6 +35,16 @@
       "topics": [
         "management"
       ]
+    },
+    "https://www.fastcompany.com/91587847/how-airbnb-reinvented-its-hr-department?partner=rss&utm_source=rss&utm_medium=feed&utm_campaign=rss+fastcompany&utm_content=rss": {
+      "date": "2026-08-18T05:00:00+00:00",
+      "source": "Fast Company — Leadership",
+      "topics": [
+        "leadership",
+        "management",
+        "focus",
+        "employee engagement"
+      ]
     }
   },
   "source_scores": {
@@ -52,6 +62,18 @@
     "leadership": 2,
     "resilience": 1
   },
-  "pending_feedback": {},
+  "pending_feedback": {
+    "91b3feffad": {
+      "url": "https://www.fastcompany.com/91587847/how-airbnb-reinvented-its-hr-department?partner=rss&utm_source=rss&utm_medium=feed&utm_campaign=rss+fastcompany&utm_content=rss",
+      "source": "Fast Company — Leadership",
+      "topics": [
+        "leadership",
+        "management",
+        "focus",
+        "employee engagement"
+      ],
+      "message_id": 13
+    }
+  },
   "last_update_id": 158813816
 }
