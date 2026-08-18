@@ -356,7 +356,16 @@ XULOSA: <100-150 so'zlik o'zbekcha xulosa>"""
         max_tokens=1200,
         messages=[{"role": "user", "content": prompt}],
     )
-    text = resp.content[0].text.strip()
+    text_blocks = [
+    block.text
+    for block in resp.content
+    if getattr(block, "type", "") == "text"
+]
+
+if not text_blocks:
+    raise ValueError("Claude javobida text bloki topilmadi")
+
+text = text_blocks[-1].strip()
 
     title_uz, summary_uz = article["title"], ""
     for line in text.splitlines():
