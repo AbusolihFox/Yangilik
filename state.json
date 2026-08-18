@@ -48,7 +48,7 @@
     }
   },
   "source_scores": {
-    "Fast Company — Leadership": 1,
+    "Fast Company — Leadership": 2,
     "MIT Sloan Management Review": -1
   },
   "topic_scores": {
@@ -56,24 +56,13 @@
     "habits": -1,
     "productivity": -1,
     "burnout": -1,
-    "focus": 0,
+    "focus": 1,
     "mindset": -1,
-    "management": 0,
-    "leadership": 2,
-    "resilience": 1
+    "management": 1,
+    "leadership": 3,
+    "resilience": 1,
+    "employee engagement": 1
   },
-  "pending_feedback": {
-    "91b3feffad": {
-      "url": "https://www.fastcompany.com/91587847/how-airbnb-reinvented-its-hr-department?partner=rss&utm_source=rss&utm_medium=feed&utm_campaign=rss+fastcompany&utm_content=rss",
-      "source": "Fast Company — Leadership",
-      "topics": [
-        "leadership",
-        "management",
-        "focus",
-        "employee engagement"
-      ],
-      "message_id": 13
-    }
-  },
+  "pending_feedback": {},
   "last_update_id": 158813816
 }
