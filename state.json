@@ -57,7 +57,7 @@
     }
   },
   "source_scores": {
-    "Fast Company — Leadership": 2,
+    "Fast Company — Leadership": 3,
     "MIT Sloan Management Review": -1
   },
   "topic_scores": {
@@ -65,24 +65,14 @@
     "habits": -1,
     "productivity": -1,
     "burnout": -1,
-    "focus": 1,
+    "focus": 2,
     "mindset": -1,
     "management": 1,
-    "leadership": 3,
+    "leadership": 4,
     "resilience": 1,
-    "employee engagement": 1
+    "employee engagement": 1,
+    "discipline": 1
   },
-  "pending_feedback": {
-    "f08d1335e4": {
-      "url": "https://www.fastcompany.com/91585461/this-is-the-ceo-behind-steve-and-connie-ballmers-philanthropy?partner=rss&utm_source=rss&utm_medium=feed&utm_campaign=rss+fastcompany&utm_content=rss",
-      "source": "Fast Company — Leadership",
-      "topics": [
-        "leadership",
-        "discipline",
-        "focus"
-      ],
-      "message_id": 14
-    }
-  },
+  "pending_feedback": {},
   "last_update_id": 158813816
 }
