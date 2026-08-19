@@ -45,6 +45,15 @@
         "focus",
         "employee engagement"
       ]
+    },
+    "https://www.fastcompany.com/91585461/this-is-the-ceo-behind-steve-and-connie-ballmers-philanthropy?partner=rss&utm_source=rss&utm_medium=feed&utm_campaign=rss+fastcompany&utm_content=rss": {
+      "date": "2026-08-10T11:00:00+00:00",
+      "source": "Fast Company — Leadership",
+      "topics": [
+        "leadership",
+        "discipline",
+        "focus"
+      ]
     }
   },
   "source_scores": {
@@ -63,6 +72,17 @@
     "resilience": 1,
     "employee engagement": 1
   },
-  "pending_feedback": {},
+  "pending_feedback": {
+    "f08d1335e4": {
+      "url": "https://www.fastcompany.com/91585461/this-is-the-ceo-behind-steve-and-connie-ballmers-philanthropy?partner=rss&utm_source=rss&utm_medium=feed&utm_campaign=rss+fastcompany&utm_content=rss",
+      "source": "Fast Company — Leadership",
+      "topics": [
+        "leadership",
+        "discipline",
+        "focus"
+      ],
+      "message_id": 14
+    }
+  },
   "last_update_id": 158813816
 }
