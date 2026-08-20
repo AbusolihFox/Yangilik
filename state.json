@@ -54,6 +54,18 @@
         "discipline",
         "focus"
       ]
+    },
+    "https://www.fastcompany.com/91585397/how-a-brilliant-founder-can-become-their-companys-creative-bottleneck?partner=rss&utm_source=rss&utm_medium=feed&utm_campaign=rss+fastcompany&utm_content=rss": {
+      "date": "2026-08-06T05:00:00+00:00",
+      "source": "Fast Company — Leadership",
+      "topics": [
+        "leadership",
+        "management",
+        "habit",
+        "habits",
+        "emotional intelligence",
+        "focus"
+      ]
     }
   },
   "source_scores": {
@@ -73,6 +85,20 @@
     "employee engagement": 1,
     "discipline": 1
   },
-  "pending_feedback": {},
+  "pending_feedback": {
+    "db2bfc9a63": {
+      "url": "https://www.fastcompany.com/91585397/how-a-brilliant-founder-can-become-their-companys-creative-bottleneck?partner=rss&utm_source=rss&utm_medium=feed&utm_campaign=rss+fastcompany&utm_content=rss",
+      "source": "Fast Company — Leadership",
+      "topics": [
+        "leadership",
+        "management",
+        "habit",
+        "habits",
+        "emotional intelligence",
+        "focus"
+      ],
+      "message_id": 15
+    }
+  },
   "last_update_id": 158813816
 }
