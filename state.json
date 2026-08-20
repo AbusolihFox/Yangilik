@@ -69,36 +69,23 @@
     }
   },
   "source_scores": {
-    "Fast Company — Leadership": 3,
+    "Fast Company — Leadership": 4,
     "MIT Sloan Management Review": -1
   },
   "topic_scores": {
-    "habit": -1,
-    "habits": -1,
+    "habit": 0,
+    "habits": 0,
     "productivity": -1,
     "burnout": -1,
-    "focus": 2,
+    "focus": 3,
     "mindset": -1,
-    "management": 1,
-    "leadership": 4,
+    "management": 2,
+    "leadership": 5,
     "resilience": 1,
     "employee engagement": 1,
-    "discipline": 1
+    "discipline": 1,
+    "emotional intelligence": 1
   },
-  "pending_feedback": {
-    "db2bfc9a63": {
-      "url": "https://www.fastcompany.com/91585397/how-a-brilliant-founder-can-become-their-companys-creative-bottleneck?partner=rss&utm_source=rss&utm_medium=feed&utm_campaign=rss+fastcompany&utm_content=rss",
-      "source": "Fast Company — Leadership",
-      "topics": [
-        "leadership",
-        "management",
-        "habit",
-        "habits",
-        "emotional intelligence",
-        "focus"
-      ],
-      "message_id": 15
-    }
-  },
+  "pending_feedback": {},
   "last_update_id": 158813816
 }
