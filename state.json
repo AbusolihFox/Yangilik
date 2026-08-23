@@ -66,6 +66,16 @@
         "emotional intelligence",
         "focus"
       ]
+    },
+    "https://www.fastcompany.com/91593021/small-employers-are-winning-over-the-next-generation?partner=rss&utm_source=rss&utm_medium=feed&utm_campaign=rss+fastcompany&utm_content=rss": {
+      "date": "2026-08-21T05:00:00+00:00",
+      "source": "Fast Company — Leadership",
+      "topics": [
+        "leadership",
+        "emotional intelligence",
+        "focus",
+        "accountability"
+      ]
     }
   },
   "source_scores": {
@@ -86,6 +96,18 @@
     "discipline": 1,
     "emotional intelligence": 1
   },
-  "pending_feedback": {},
+  "pending_feedback": {
+    "e9d4496ae8": {
+      "url": "https://www.fastcompany.com/91593021/small-employers-are-winning-over-the-next-generation?partner=rss&utm_source=rss&utm_medium=feed&utm_campaign=rss+fastcompany&utm_content=rss",
+      "source": "Fast Company — Leadership",
+      "topics": [
+        "leadership",
+        "emotional intelligence",
+        "focus",
+        "accountability"
+      ],
+      "message_id": 16
+    }
+  },
   "last_update_id": 158813816
 }
