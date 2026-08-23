@@ -79,7 +79,7 @@
     }
   },
   "source_scores": {
-    "Fast Company — Leadership": 4,
+    "Fast Company — Leadership": 5,
     "MIT Sloan Management Review": -1
   },
   "topic_scores": {
@@ -87,27 +87,16 @@
     "habits": 0,
     "productivity": -1,
     "burnout": -1,
-    "focus": 3,
+    "focus": 4,
     "mindset": -1,
     "management": 2,
-    "leadership": 5,
+    "leadership": 6,
     "resilience": 1,
     "employee engagement": 1,
     "discipline": 1,
-    "emotional intelligence": 1
+    "emotional intelligence": 2,
+    "accountability": 1
   },
-  "pending_feedback": {
-    "e9d4496ae8": {
-      "url": "https://www.fastcompany.com/91593021/small-employers-are-winning-over-the-next-generation?partner=rss&utm_source=rss&utm_medium=feed&utm_campaign=rss+fastcompany&utm_content=rss",
-      "source": "Fast Company — Leadership",
-      "topics": [
-        "leadership",
-        "emotional intelligence",
-        "focus",
-        "accountability"
-      ],
-      "message_id": 16
-    }
-  },
+  "pending_feedback": {},
   "last_update_id": 158813816
 }
