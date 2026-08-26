@@ -76,6 +76,16 @@
         "focus",
         "accountability"
       ]
+    },
+    "https://www.fastcompany.com/91591352/how-to-nurture-a-great-company-culture-as-you-scale-up?partner=rss&utm_source=rss&utm_medium=feed&utm_campaign=rss+fastcompany&utm_content=rss": {
+      "date": "2026-08-24T05:00:00+00:00",
+      "source": "Fast Company — Leadership",
+      "topics": [
+        "leadership",
+        "management",
+        "focus",
+        "employee engagement"
+      ]
     }
   },
   "source_scores": {
@@ -97,6 +107,18 @@
     "emotional intelligence": 2,
     "accountability": 1
   },
-  "pending_feedback": {},
+  "pending_feedback": {
+    "cf666d56cb": {
+      "url": "https://www.fastcompany.com/91591352/how-to-nurture-a-great-company-culture-as-you-scale-up?partner=rss&utm_source=rss&utm_medium=feed&utm_campaign=rss+fastcompany&utm_content=rss",
+      "source": "Fast Company — Leadership",
+      "topics": [
+        "leadership",
+        "management",
+        "focus",
+        "employee engagement"
+      ],
+      "message_id": 17
+    }
+  },
   "last_update_id": 158813816
 }
