@@ -89,7 +89,7 @@
     }
   },
   "source_scores": {
-    "Fast Company — Leadership": 5,
+    "Fast Company — Leadership": 6,
     "MIT Sloan Management Review": -1
   },
   "topic_scores": {
@@ -97,28 +97,16 @@
     "habits": 0,
     "productivity": -1,
     "burnout": -1,
-    "focus": 4,
+    "focus": 5,
     "mindset": -1,
-    "management": 2,
-    "leadership": 6,
+    "management": 3,
+    "leadership": 7,
     "resilience": 1,
-    "employee engagement": 1,
+    "employee engagement": 2,
     "discipline": 1,
     "emotional intelligence": 2,
     "accountability": 1
   },
-  "pending_feedback": {
-    "cf666d56cb": {
-      "url": "https://www.fastcompany.com/91591352/how-to-nurture-a-great-company-culture-as-you-scale-up?partner=rss&utm_source=rss&utm_medium=feed&utm_campaign=rss+fastcompany&utm_content=rss",
-      "source": "Fast Company — Leadership",
-      "topics": [
-        "leadership",
-        "management",
-        "focus",
-        "employee engagement"
-      ],
-      "message_id": 17
-    }
-  },
+  "pending_feedback": {},
   "last_update_id": 158813816
 }
