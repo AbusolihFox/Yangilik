@@ -98,7 +98,7 @@
     }
   },
   "source_scores": {
-    "Fast Company — Leadership": 6,
+    "Fast Company — Leadership": 7,
     "MIT Sloan Management Review": -1
   },
   "topic_scores": {
@@ -106,27 +106,16 @@
     "habits": 0,
     "productivity": -1,
     "burnout": -1,
-    "focus": 5,
+    "focus": 6,
     "mindset": -1,
     "management": 3,
-    "leadership": 7,
+    "leadership": 8,
     "resilience": 1,
     "employee engagement": 2,
-    "discipline": 1,
+    "discipline": 2,
     "emotional intelligence": 2,
     "accountability": 1
   },
-  "pending_feedback": {
-    "24f9519c34": {
-      "url": "https://www.fastcompany.com/91584971/the-hidden-cost-of-moving-fast-without-a-vision-management-advice-speed?partner=rss&utm_source=rss&utm_medium=feed&utm_campaign=rss+fastcompany&utm_content=rss",
-      "source": "Fast Company — Leadership",
-      "topics": [
-        "leadership",
-        "discipline",
-        "focus"
-      ],
-      "message_id": 18
-    }
-  },
+  "pending_feedback": {},
   "last_update_id": 158813816
 }
