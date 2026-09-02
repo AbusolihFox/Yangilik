@@ -95,6 +95,17 @@
         "discipline",
         "focus"
       ]
+    },
+    "https://www.fastcompany.com/91593701/no-impostor-syndrome-for-this-ceo?partner=rss&utm_source=rss&utm_medium=feed&utm_campaign=rss+fastcompany&utm_content=rss": {
+      "date": "2026-08-24T11:00:00+00:00",
+      "source": "Fast Company — Leadership",
+      "topics": [
+        "leadership",
+        "discipline",
+        "ego",
+        "focus",
+        "mindset"
+      ]
     }
   },
   "source_scores": {
@@ -116,6 +127,19 @@
     "emotional intelligence": 2,
     "accountability": 1
   },
-  "pending_feedback": {},
+  "pending_feedback": {
+    "fa03c44056": {
+      "url": "https://www.fastcompany.com/91593701/no-impostor-syndrome-for-this-ceo?partner=rss&utm_source=rss&utm_medium=feed&utm_campaign=rss+fastcompany&utm_content=rss",
+      "source": "Fast Company — Leadership",
+      "topics": [
+        "leadership",
+        "discipline",
+        "ego",
+        "focus",
+        "mindset"
+      ],
+      "message_id": 19
+    }
+  },
   "last_update_id": 158813816
 }
