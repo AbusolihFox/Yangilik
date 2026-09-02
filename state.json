@@ -109,7 +109,7 @@
     }
   },
   "source_scores": {
-    "Fast Company — Leadership": 7,
+    "Fast Company — Leadership": 8,
     "MIT Sloan Management Review": -1
   },
   "topic_scores": {
@@ -117,29 +117,17 @@
     "habits": 0,
     "productivity": -1,
     "burnout": -1,
-    "focus": 6,
-    "mindset": -1,
+    "focus": 7,
+    "mindset": 0,
     "management": 3,
-    "leadership": 8,
+    "leadership": 9,
     "resilience": 1,
     "employee engagement": 2,
-    "discipline": 2,
+    "discipline": 3,
     "emotional intelligence": 2,
-    "accountability": 1
+    "accountability": 1,
+    "ego": 1
   },
-  "pending_feedback": {
-    "fa03c44056": {
-      "url": "https://www.fastcompany.com/91593701/no-impostor-syndrome-for-this-ceo?partner=rss&utm_source=rss&utm_medium=feed&utm_campaign=rss+fastcompany&utm_content=rss",
-      "source": "Fast Company — Leadership",
-      "topics": [
-        "leadership",
-        "discipline",
-        "ego",
-        "focus",
-        "mindset"
-      ],
-      "message_id": 19
-    }
-  },
+  "pending_feedback": {},
   "last_update_id": 158813816
 }
