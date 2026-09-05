@@ -106,6 +106,17 @@
         "focus",
         "mindset"
       ]
+    },
+    "https://www.fastcompany.com/91593209/why-leaders-struggle-with-negative-feedback?partner=rss&utm_source=rss&utm_medium=feed&utm_campaign=rss+fastcompany&utm_content=rss": {
+      "date": "2026-09-02T08:00:00+00:00",
+      "source": "Fast Company — Leadership",
+      "topics": [
+        "leadership",
+        "habit",
+        "productivity",
+        "ego",
+        "focus"
+      ]
     }
   },
   "source_scores": {
@@ -128,6 +139,19 @@
     "accountability": 1,
     "ego": 1
   },
-  "pending_feedback": {},
+  "pending_feedback": {
+    "107b8ff039": {
+      "url": "https://www.fastcompany.com/91593209/why-leaders-struggle-with-negative-feedback?partner=rss&utm_source=rss&utm_medium=feed&utm_campaign=rss+fastcompany&utm_content=rss",
+      "source": "Fast Company — Leadership",
+      "topics": [
+        "leadership",
+        "habit",
+        "productivity",
+        "ego",
+        "focus"
+      ],
+      "message_id": 20
+    }
+  },
   "last_update_id": 158813816
 }
