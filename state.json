@@ -120,38 +120,25 @@
     }
   },
   "source_scores": {
-    "Fast Company — Leadership": 8,
+    "Fast Company — Leadership": 9,
     "MIT Sloan Management Review": -1
   },
   "topic_scores": {
-    "habit": 0,
+    "habit": 1,
     "habits": 0,
-    "productivity": -1,
+    "productivity": 0,
     "burnout": -1,
-    "focus": 7,
+    "focus": 8,
     "mindset": 0,
     "management": 3,
-    "leadership": 9,
+    "leadership": 10,
     "resilience": 1,
     "employee engagement": 2,
     "discipline": 3,
     "emotional intelligence": 2,
     "accountability": 1,
-    "ego": 1
+    "ego": 2
   },
-  "pending_feedback": {
-    "107b8ff039": {
-      "url": "https://www.fastcompany.com/91593209/why-leaders-struggle-with-negative-feedback?partner=rss&utm_source=rss&utm_medium=feed&utm_campaign=rss+fastcompany&utm_content=rss",
-      "source": "Fast Company — Leadership",
-      "topics": [
-        "leadership",
-        "habit",
-        "productivity",
-        "ego",
-        "focus"
-      ],
-      "message_id": 20
-    }
-  },
+  "pending_feedback": {},
   "last_update_id": 158813816
 }
