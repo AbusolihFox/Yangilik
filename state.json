@@ -129,18 +129,18 @@
     }
   },
   "source_scores": {
-    "Fast Company — Leadership": 9,
+    "Fast Company — Leadership": 10,
     "MIT Sloan Management Review": -1
   },
   "topic_scores": {
-    "habit": 1,
+    "habit": 2,
     "habits": 0,
     "productivity": 0,
     "burnout": -1,
-    "focus": 8,
+    "focus": 9,
     "mindset": 0,
     "management": 3,
-    "leadership": 10,
+    "leadership": 11,
     "resilience": 1,
     "employee engagement": 2,
     "discipline": 3,
@@ -148,17 +148,6 @@
     "accountability": 1,
     "ego": 2
   },
-  "pending_feedback": {
-    "e90cb4ace7": {
-      "url": "https://www.fastcompany.com/91594776/managers-are-bad-at-coaching-four-tips-for-improving?partner=rss&utm_source=rss&utm_medium=feed&utm_campaign=rss+fastcompany&utm_content=rss",
-      "source": "Fast Company — Leadership",
-      "topics": [
-        "leadership",
-        "habit",
-        "focus"
-      ],
-      "message_id": 21
-    }
-  },
+  "pending_feedback": {},
   "last_update_id": 158813816
 }
