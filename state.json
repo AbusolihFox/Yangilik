@@ -117,6 +117,15 @@
         "ego",
         "focus"
       ]
+    },
+    "https://www.fastcompany.com/91594776/managers-are-bad-at-coaching-four-tips-for-improving?partner=rss&utm_source=rss&utm_medium=feed&utm_campaign=rss+fastcompany&utm_content=rss": {
+      "date": "2026-08-30T05:00:00+00:00",
+      "source": "Fast Company — Leadership",
+      "topics": [
+        "leadership",
+        "habit",
+        "focus"
+      ]
     }
   },
   "source_scores": {
@@ -139,6 +148,17 @@
     "accountability": 1,
     "ego": 2
   },
-  "pending_feedback": {},
+  "pending_feedback": {
+    "e90cb4ace7": {
+      "url": "https://www.fastcompany.com/91594776/managers-are-bad-at-coaching-four-tips-for-improving?partner=rss&utm_source=rss&utm_medium=feed&utm_campaign=rss+fastcompany&utm_content=rss",
+      "source": "Fast Company — Leadership",
+      "topics": [
+        "leadership",
+        "habit",
+        "focus"
+      ],
+      "message_id": 21
+    }
+  },
   "last_update_id": 158813816
 }
