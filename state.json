@@ -126,6 +126,15 @@
         "habit",
         "focus"
       ]
+    },
+    "https://www.fastcompany.com/91584377/women-are-sounding-the-alarm-on-ai-leaders-should-listen-ai-dangers-women-technology?partner=rss&utm_source=rss&utm_medium=feed&utm_campaign=rss+fastcompany&utm_content=rss": {
+      "date": "2026-08-27T10:02:00+00:00",
+      "source": "Fast Company — Leadership",
+      "topics": [
+        "leadership",
+        "productivity",
+        "focus"
+      ]
     }
   },
   "source_scores": {
@@ -148,6 +157,17 @@
     "accountability": 1,
     "ego": 2
   },
-  "pending_feedback": {},
+  "pending_feedback": {
+    "f53363514f": {
+      "url": "https://www.fastcompany.com/91584377/women-are-sounding-the-alarm-on-ai-leaders-should-listen-ai-dangers-women-technology?partner=rss&utm_source=rss&utm_medium=feed&utm_campaign=rss+fastcompany&utm_content=rss",
+      "source": "Fast Company — Leadership",
+      "topics": [
+        "leadership",
+        "productivity",
+        "focus"
+      ],
+      "message_id": 22
+    }
+  },
   "last_update_id": 158813816
 }
