@@ -151,40 +151,26 @@
     }
   },
   "source_scores": {
-    "Fast Company — Leadership": 11,
+    "Fast Company — Leadership": 12,
     "MIT Sloan Management Review": -1
   },
   "topic_scores": {
     "habit": 2,
     "habits": 0,
     "productivity": 1,
-    "burnout": -1,
-    "focus": 10,
+    "burnout": 0,
+    "focus": 11,
     "mindset": 0,
-    "management": 3,
-    "leadership": 12,
+    "management": 4,
+    "leadership": 13,
     "resilience": 1,
     "employee engagement": 2,
     "discipline": 3,
     "emotional intelligence": 2,
-    "accountability": 1,
-    "ego": 2
+    "accountability": 2,
+    "ego": 3,
+    "motivation": 1
   },
-  "pending_feedback": {
-    "73240260be": {
-      "url": "https://www.fastcompany.com/91596792/toxic-management-behaviors-good-employees?partner=rss&utm_source=rss&utm_medium=feed&utm_campaign=rss+fastcompany&utm_content=rss",
-      "source": "Fast Company — Leadership",
-      "topics": [
-        "leadership",
-        "management",
-        "motivation",
-        "ego",
-        "burnout",
-        "focus",
-        "accountability"
-      ],
-      "message_id": 23
-    }
-  },
+  "pending_feedback": {},
   "last_update_id": 158813816
 }
