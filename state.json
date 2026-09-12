@@ -135,6 +135,19 @@
         "productivity",
         "focus"
       ]
+    },
+    "https://www.fastcompany.com/91596792/toxic-management-behaviors-good-employees?partner=rss&utm_source=rss&utm_medium=feed&utm_campaign=rss+fastcompany&utm_content=rss": {
+      "date": "2026-09-08T08:00:00+00:00",
+      "source": "Fast Company — Leadership",
+      "topics": [
+        "leadership",
+        "management",
+        "motivation",
+        "ego",
+        "burnout",
+        "focus",
+        "accountability"
+      ]
     }
   },
   "source_scores": {
@@ -157,6 +170,21 @@
     "accountability": 1,
     "ego": 2
   },
-  "pending_feedback": {},
+  "pending_feedback": {
+    "73240260be": {
+      "url": "https://www.fastcompany.com/91596792/toxic-management-behaviors-good-employees?partner=rss&utm_source=rss&utm_medium=feed&utm_campaign=rss+fastcompany&utm_content=rss",
+      "source": "Fast Company — Leadership",
+      "topics": [
+        "leadership",
+        "management",
+        "motivation",
+        "ego",
+        "burnout",
+        "focus",
+        "accountability"
+      ],
+      "message_id": 23
+    }
+  },
   "last_update_id": 158813816
 }
