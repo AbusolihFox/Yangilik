@@ -148,6 +148,15 @@
         "focus",
         "accountability"
       ]
+    },
+    "https://www.fastcompany.com/91596765/if-your-business-doesnt-offer-workers-a-401k-plan-maybe-now-is-the-time?partner=rss&utm_source=rss&utm_medium=feed&utm_campaign=rss+fastcompany&utm_content=rss": {
+      "date": "2026-09-07T08:00:00+00:00",
+      "source": "Fast Company — Leadership",
+      "topics": [
+        "leadership",
+        "ego",
+        "focus"
+      ]
     }
   },
   "source_scores": {
@@ -171,6 +180,17 @@
     "ego": 3,
     "motivation": 1
   },
-  "pending_feedback": {},
+  "pending_feedback": {
+    "4587358dee": {
+      "url": "https://www.fastcompany.com/91596765/if-your-business-doesnt-offer-workers-a-401k-plan-maybe-now-is-the-time?partner=rss&utm_source=rss&utm_medium=feed&utm_campaign=rss+fastcompany&utm_content=rss",
+      "source": "Fast Company — Leadership",
+      "topics": [
+        "leadership",
+        "ego",
+        "focus"
+      ],
+      "message_id": 24
+    }
+  },
   "last_update_id": 158813816
 }
