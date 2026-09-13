@@ -160,7 +160,7 @@
     }
   },
   "source_scores": {
-    "Fast Company — Leadership": 12,
+    "Fast Company — Leadership": 13,
     "MIT Sloan Management Review": -1
   },
   "topic_scores": {
@@ -168,29 +168,18 @@
     "habits": 0,
     "productivity": 1,
     "burnout": 0,
-    "focus": 11,
+    "focus": 12,
     "mindset": 0,
     "management": 4,
-    "leadership": 13,
+    "leadership": 14,
     "resilience": 1,
     "employee engagement": 2,
     "discipline": 3,
     "emotional intelligence": 2,
     "accountability": 2,
-    "ego": 3,
+    "ego": 4,
     "motivation": 1
   },
-  "pending_feedback": {
-    "4587358dee": {
-      "url": "https://www.fastcompany.com/91596765/if-your-business-doesnt-offer-workers-a-401k-plan-maybe-now-is-the-time?partner=rss&utm_source=rss&utm_medium=feed&utm_campaign=rss+fastcompany&utm_content=rss",
-      "source": "Fast Company — Leadership",
-      "topics": [
-        "leadership",
-        "ego",
-        "focus"
-      ],
-      "message_id": 24
-    }
-  },
+  "pending_feedback": {},
   "last_update_id": 158813816
 }
