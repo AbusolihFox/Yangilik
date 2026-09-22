@@ -157,6 +157,17 @@
         "ego",
         "focus"
       ]
+    },
+    "https://www.fastcompany.com/91609742/nothings-going-to-feel-good-now-for-workers-uncomforable-with-change-says-cisco-ceo?partner=rss&utm_source=rss&utm_medium=feed&utm_campaign=rss+fastcompany&utm_content=rss": {
+      "date": "2026-09-21T11:00:00+00:00",
+      "source": "Fast Company — Leadership",
+      "topics": [
+        "leadership",
+        "productivity",
+        "ego",
+        "focus",
+        "mindset"
+      ]
     }
   },
   "source_scores": {
@@ -180,6 +191,19 @@
     "ego": 4,
     "motivation": 1
   },
-  "pending_feedback": {},
+  "pending_feedback": {
+    "6d88e81454": {
+      "url": "https://www.fastcompany.com/91609742/nothings-going-to-feel-good-now-for-workers-uncomforable-with-change-says-cisco-ceo?partner=rss&utm_source=rss&utm_medium=feed&utm_campaign=rss+fastcompany&utm_content=rss",
+      "source": "Fast Company — Leadership",
+      "topics": [
+        "leadership",
+        "productivity",
+        "ego",
+        "focus",
+        "mindset"
+      ],
+      "message_id": 25
+    }
+  },
   "last_update_id": 158813816
 }
