@@ -168,6 +168,21 @@
         "focus",
         "mindset"
       ]
+    },
+    "https://www.fastcompany.com/91585548/are-you-tough-enough-at-work?partner=rss&utm_source=rss&utm_medium=feed&utm_campaign=rss+fastcompany&utm_content=rss": {
+      "date": "2026-09-28T05:00:00+00:00",
+      "source": "Fast Company — Leadership",
+      "topics": [
+        "leadership",
+        "management",
+        "habit",
+        "habits",
+        "ego",
+        "focus",
+        "mindset",
+        "resilience",
+        "accountability"
+      ]
     }
   },
   "source_scores": {
@@ -191,6 +206,23 @@
     "ego": 5,
     "motivation": 1
   },
-  "pending_feedback": {},
+  "pending_feedback": {
+    "9e66965baf": {
+      "url": "https://www.fastcompany.com/91585548/are-you-tough-enough-at-work?partner=rss&utm_source=rss&utm_medium=feed&utm_campaign=rss+fastcompany&utm_content=rss",
+      "source": "Fast Company — Leadership",
+      "topics": [
+        "leadership",
+        "management",
+        "habit",
+        "habits",
+        "ego",
+        "focus",
+        "mindset",
+        "resilience",
+        "accountability"
+      ],
+      "message_id": 26
+    }
+  },
   "last_update_id": 158813816
 }
