@@ -186,43 +186,26 @@
     }
   },
   "source_scores": {
-    "Fast Company — Leadership": 14,
+    "Fast Company — Leadership": 15,
     "MIT Sloan Management Review": -1
   },
   "topic_scores": {
-    "habit": 2,
-    "habits": 0,
+    "habit": 3,
+    "habits": 1,
     "productivity": 2,
     "burnout": 0,
-    "focus": 13,
-    "mindset": 1,
-    "management": 4,
-    "leadership": 15,
-    "resilience": 1,
+    "focus": 14,
+    "mindset": 2,
+    "management": 5,
+    "leadership": 16,
+    "resilience": 2,
     "employee engagement": 2,
     "discipline": 3,
     "emotional intelligence": 2,
-    "accountability": 2,
-    "ego": 5,
+    "accountability": 3,
+    "ego": 6,
     "motivation": 1
   },
-  "pending_feedback": {
-    "9e66965baf": {
-      "url": "https://www.fastcompany.com/91585548/are-you-tough-enough-at-work?partner=rss&utm_source=rss&utm_medium=feed&utm_campaign=rss+fastcompany&utm_content=rss",
-      "source": "Fast Company — Leadership",
-      "topics": [
-        "leadership",
-        "management",
-        "habit",
-        "habits",
-        "ego",
-        "focus",
-        "mindset",
-        "resilience",
-        "accountability"
-      ],
-      "message_id": 26
-    }
-  },
+  "pending_feedback": {},
   "last_update_id": 158813816
 }
