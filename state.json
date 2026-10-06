@@ -183,6 +183,17 @@
         "resilience",
         "accountability"
       ]
+    },
+    "https://www.fastcompany.com/91614123/stop-telling-women-to-talk-about-menopause-at-work?partner=rss&utm_source=rss&utm_medium=feed&utm_campaign=rss+fastcompany&utm_content=rss": {
+      "date": "2026-10-05T05:00:00+00:00",
+      "source": "Fast Company — Leadership",
+      "topics": [
+        "leadership",
+        "management",
+        "productivity",
+        "ego",
+        "focus"
+      ]
     }
   },
   "source_scores": {
@@ -206,6 +217,19 @@
     "ego": 6,
     "motivation": 1
   },
-  "pending_feedback": {},
+  "pending_feedback": {
+    "e42636727d": {
+      "url": "https://www.fastcompany.com/91614123/stop-telling-women-to-talk-about-menopause-at-work?partner=rss&utm_source=rss&utm_medium=feed&utm_campaign=rss+fastcompany&utm_content=rss",
+      "source": "Fast Company — Leadership",
+      "topics": [
+        "leadership",
+        "management",
+        "productivity",
+        "ego",
+        "focus"
+      ],
+      "message_id": 27
+    }
+  },
   "last_update_id": 158813816
 }
