@@ -206,7 +206,7 @@
     }
   },
   "source_scores": {
-    "Fast Company — Leadership": 16,
+    "Fast Company — Leadership": 17,
     "MIT Sloan Management Review": -1
   },
   "topic_scores": {
@@ -214,10 +214,10 @@
     "habits": 1,
     "productivity": 3,
     "burnout": 0,
-    "focus": 15,
+    "focus": 16,
     "mindset": 2,
-    "management": 6,
-    "leadership": 17,
+    "management": 7,
+    "leadership": 18,
     "resilience": 2,
     "employee engagement": 2,
     "discipline": 3,
@@ -226,17 +226,6 @@
     "ego": 7,
     "motivation": 1
   },
-  "pending_feedback": {
-    "accd4220bf": {
-      "url": "https://www.fastcompany.com/91618321/why-you-should-be-transparent-about-your-professional-development-activities?partner=rss&utm_source=rss&utm_medium=feed&utm_campaign=rss+fastcompany&utm_content=rss",
-      "source": "Fast Company — Leadership",
-      "topics": [
-        "leadership",
-        "management",
-        "focus"
-      ],
-      "message_id": 28
-    }
-  },
+  "pending_feedback": {},
   "last_update_id": 158813816
 }
