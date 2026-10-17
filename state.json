@@ -203,6 +203,16 @@
         "management",
         "focus"
       ]
+    },
+    "https://www.fastcompany.com/91613141/this-is-how-great-managers-respond-to-disengaged-employees?partner=rss&utm_source=rss&utm_medium=feed&utm_campaign=rss+fastcompany&utm_content=rss": {
+      "date": "2026-10-14T10:00:00+00:00",
+      "source": "Fast Company — Leadership",
+      "topics": [
+        "leadership",
+        "motivation",
+        "focus",
+        "accountability"
+      ]
     }
   },
   "source_scores": {
@@ -226,6 +236,18 @@
     "ego": 7,
     "motivation": 1
   },
-  "pending_feedback": {},
+  "pending_feedback": {
+    "c04330a829": {
+      "url": "https://www.fastcompany.com/91613141/this-is-how-great-managers-respond-to-disengaged-employees?partner=rss&utm_source=rss&utm_medium=feed&utm_campaign=rss+fastcompany&utm_content=rss",
+      "source": "Fast Company — Leadership",
+      "topics": [
+        "leadership",
+        "motivation",
+        "focus",
+        "accountability"
+      ],
+      "message_id": 29
+    }
+  },
   "last_update_id": 158813816
 }
