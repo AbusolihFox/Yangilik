@@ -213,6 +213,14 @@
         "focus",
         "accountability"
       ]
+    },
+    "https://www.fastcompany.com/91619217/the-3-skills-behind-executive-presence?partner=rss&utm_source=rss&utm_medium=feed&utm_campaign=rss+fastcompany&utm_content=rss": {
+      "date": "2026-10-15T05:00:00+00:00",
+      "source": "Fast Company — Leadership",
+      "topics": [
+        "leadership",
+        "focus"
+      ]
     }
   },
   "source_scores": {
@@ -236,6 +244,16 @@
     "ego": 7,
     "motivation": 2
   },
-  "pending_feedback": {},
+  "pending_feedback": {
+    "6d914718c4": {
+      "url": "https://www.fastcompany.com/91619217/the-3-skills-behind-executive-presence?partner=rss&utm_source=rss&utm_medium=feed&utm_campaign=rss+fastcompany&utm_content=rss",
+      "source": "Fast Company — Leadership",
+      "topics": [
+        "leadership",
+        "focus"
+      ],
+      "message_id": 30
+    }
+  },
   "last_update_id": 158813816
 }
