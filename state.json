@@ -235,19 +235,19 @@
     }
   },
   "source_scores": {
-    "Fast Company — Leadership": 19,
+    "Fast Company — Leadership": 20,
     "MIT Sloan Management Review": -1
   },
   "topic_scores": {
     "habit": 3,
     "habits": 1,
-    "productivity": 3,
+    "productivity": 4,
     "burnout": 0,
-    "focus": 18,
+    "focus": 19,
     "mindset": 2,
-    "management": 7,
-    "leadership": 20,
-    "resilience": 2,
+    "management": 8,
+    "leadership": 21,
+    "resilience": 3,
     "employee engagement": 2,
     "discipline": 3,
     "emotional intelligence": 2,
@@ -255,19 +255,6 @@
     "ego": 7,
     "motivation": 2
   },
-  "pending_feedback": {
-    "5ef9008cc3": {
-      "url": "https://www.fastcompany.com/91620118/your-mood-is-your-teams-weather-forecast-leadership-mood?partner=rss&utm_source=rss&utm_medium=feed&utm_campaign=rss+fastcompany&utm_content=rss",
-      "source": "Fast Company — Leadership",
-      "topics": [
-        "leadership",
-        "management",
-        "productivity",
-        "focus",
-        "resilience"
-      ],
-      "message_id": 31
-    }
-  },
+  "pending_feedback": {},
   "last_update_id": 158813816
 }
