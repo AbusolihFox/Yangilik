@@ -245,18 +245,18 @@
     }
   },
   "source_scores": {
-    "Fast Company — Leadership": 20,
+    "Fast Company — Leadership": 21,
     "MIT Sloan Management Review": -1
   },
   "topic_scores": {
     "habit": 3,
     "habits": 1,
-    "productivity": 4,
+    "productivity": 5,
     "burnout": 0,
-    "focus": 19,
+    "focus": 20,
     "mindset": 2,
-    "management": 8,
-    "leadership": 21,
+    "management": 9,
+    "leadership": 22,
     "resilience": 3,
     "employee engagement": 2,
     "discipline": 3,
@@ -265,18 +265,6 @@
     "ego": 7,
     "motivation": 2
   },
-  "pending_feedback": {
-    "53f8b345a7": {
-      "url": "https://www.fastcompany.com/91628803/the-people-in-your-workplace-matter-a-lot-more-than-where-they-work?partner=rss&utm_source=rss&utm_medium=feed&utm_campaign=rss+fastcompany&utm_content=rss",
-      "source": "Fast Company — Leadership",
-      "topics": [
-        "leadership",
-        "management",
-        "productivity",
-        "focus"
-      ],
-      "message_id": 32
-    }
-  },
+  "pending_feedback": {},
   "last_update_id": 158813816
 }
