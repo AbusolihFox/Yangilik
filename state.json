@@ -232,6 +232,16 @@
         "focus",
         "resilience"
       ]
+    },
+    "https://www.fastcompany.com/91628803/the-people-in-your-workplace-matter-a-lot-more-than-where-they-work?partner=rss&utm_source=rss&utm_medium=feed&utm_campaign=rss+fastcompany&utm_content=rss": {
+      "date": "2026-10-28T10:00:00+00:00",
+      "source": "Fast Company — Leadership",
+      "topics": [
+        "leadership",
+        "management",
+        "productivity",
+        "focus"
+      ]
     }
   },
   "source_scores": {
@@ -255,6 +265,18 @@
     "ego": 7,
     "motivation": 2
   },
-  "pending_feedback": {},
+  "pending_feedback": {
+    "53f8b345a7": {
+      "url": "https://www.fastcompany.com/91628803/the-people-in-your-workplace-matter-a-lot-more-than-where-they-work?partner=rss&utm_source=rss&utm_medium=feed&utm_campaign=rss+fastcompany&utm_content=rss",
+      "source": "Fast Company — Leadership",
+      "topics": [
+        "leadership",
+        "management",
+        "productivity",
+        "focus"
+      ],
+      "message_id": 32
+    }
+  },
   "last_update_id": 158813816
 }
