@@ -254,7 +254,7 @@
     }
   },
   "source_scores": {
-    "Fast Company — Leadership": 21,
+    "Fast Company — Leadership": 22,
     "MIT Sloan Management Review": -1
   },
   "topic_scores": {
@@ -262,29 +262,18 @@
     "habits": 1,
     "productivity": 5,
     "burnout": 0,
-    "focus": 20,
+    "focus": 21,
     "mindset": 2,
     "management": 9,
-    "leadership": 22,
+    "leadership": 23,
     "resilience": 3,
     "employee engagement": 2,
     "discipline": 3,
     "emotional intelligence": 2,
     "accountability": 4,
-    "ego": 7,
+    "ego": 8,
     "motivation": 2
   },
-  "pending_feedback": {
-    "58d7e0af36": {
-      "url": "https://www.fastcompany.com/91628818/most-companies-are-planning-their-workforce-backward-heres-a-better-way?partner=rss&utm_source=rss&utm_medium=feed&utm_campaign=rss+fastcompany&utm_content=rss",
-      "source": "Fast Company — Leadership",
-      "topics": [
-        "leadership",
-        "ego",
-        "focus"
-      ],
-      "message_id": 33
-    }
-  },
+  "pending_feedback": {},
   "last_update_id": 158813816
 }
