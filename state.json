@@ -242,6 +242,15 @@
         "productivity",
         "focus"
       ]
+    },
+    "https://www.fastcompany.com/91628818/most-companies-are-planning-their-workforce-backward-heres-a-better-way?partner=rss&utm_source=rss&utm_medium=feed&utm_campaign=rss+fastcompany&utm_content=rss": {
+      "date": "2026-10-29T10:00:00+00:00",
+      "source": "Fast Company — Leadership",
+      "topics": [
+        "leadership",
+        "ego",
+        "focus"
+      ]
     }
   },
   "source_scores": {
@@ -265,6 +274,17 @@
     "ego": 7,
     "motivation": 2
   },
-  "pending_feedback": {},
+  "pending_feedback": {
+    "58d7e0af36": {
+      "url": "https://www.fastcompany.com/91628818/most-companies-are-planning-their-workforce-backward-heres-a-better-way?partner=rss&utm_source=rss&utm_medium=feed&utm_campaign=rss+fastcompany&utm_content=rss",
+      "source": "Fast Company — Leadership",
+      "topics": [
+        "leadership",
+        "ego",
+        "focus"
+      ],
+      "message_id": 33
+    }
+  },
   "last_update_id": 158813816
 }
