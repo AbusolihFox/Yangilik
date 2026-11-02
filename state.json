@@ -251,6 +251,16 @@
         "ego",
         "focus"
       ]
+    },
+    "https://www.fastcompany.com/91626287/four-steps-for-running-a-panel-people-actually-want-to-attend?partner=rss&utm_source=rss&utm_medium=feed&utm_campaign=rss+fastcompany&utm_content=rss": {
+      "date": "2026-10-27T05:00:00+00:00",
+      "source": "Fast Company — Leadership",
+      "topics": [
+        "leadership",
+        "discipline",
+        "emotional intelligence",
+        "focus"
+      ]
     }
   },
   "source_scores": {
@@ -274,6 +284,18 @@
     "ego": 8,
     "motivation": 2
   },
-  "pending_feedback": {},
+  "pending_feedback": {
+    "4ef0cb8440": {
+      "url": "https://www.fastcompany.com/91626287/four-steps-for-running-a-panel-people-actually-want-to-attend?partner=rss&utm_source=rss&utm_medium=feed&utm_campaign=rss+fastcompany&utm_content=rss",
+      "source": "Fast Company — Leadership",
+      "topics": [
+        "leadership",
+        "discipline",
+        "emotional intelligence",
+        "focus"
+      ],
+      "message_id": 34
+    }
+  },
   "last_update_id": 158813816
 }
