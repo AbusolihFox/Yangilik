@@ -264,7 +264,7 @@
     }
   },
   "source_scores": {
-    "Fast Company — Leadership": 22,
+    "Fast Company — Leadership": 23,
     "MIT Sloan Management Review": -1
   },
   "topic_scores": {
@@ -272,30 +272,18 @@
     "habits": 1,
     "productivity": 5,
     "burnout": 0,
-    "focus": 21,
+    "focus": 22,
     "mindset": 2,
     "management": 9,
-    "leadership": 23,
+    "leadership": 24,
     "resilience": 3,
     "employee engagement": 2,
-    "discipline": 3,
-    "emotional intelligence": 2,
+    "discipline": 4,
+    "emotional intelligence": 3,
     "accountability": 4,
     "ego": 8,
     "motivation": 2
   },
-  "pending_feedback": {
-    "4ef0cb8440": {
-      "url": "https://www.fastcompany.com/91626287/four-steps-for-running-a-panel-people-actually-want-to-attend?partner=rss&utm_source=rss&utm_medium=feed&utm_campaign=rss+fastcompany&utm_content=rss",
-      "source": "Fast Company — Leadership",
-      "topics": [
-        "leadership",
-        "discipline",
-        "emotional intelligence",
-        "focus"
-      ],
-      "message_id": 34
-    }
-  },
+  "pending_feedback": {},
   "last_update_id": 158813816
 }
