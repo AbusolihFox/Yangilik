@@ -261,6 +261,14 @@
         "emotional intelligence",
         "focus"
       ]
+    },
+    "https://www.fastcompany.com/91632374/customer-obsession-done-with-a-twinkle-in-your-eye?partner=rss&utm_source=rss&utm_medium=feed&utm_campaign=rss+fastcompany&utm_content=rss": {
+      "date": "2026-11-02T12:00:00+00:00",
+      "source": "Fast Company — Leadership",
+      "topics": [
+        "leadership",
+        "focus"
+      ]
     }
   },
   "source_scores": {
@@ -284,6 +292,16 @@
     "ego": 8,
     "motivation": 2
   },
-  "pending_feedback": {},
+  "pending_feedback": {
+    "cac75765f6": {
+      "url": "https://www.fastcompany.com/91632374/customer-obsession-done-with-a-twinkle-in-your-eye?partner=rss&utm_source=rss&utm_medium=feed&utm_campaign=rss+fastcompany&utm_content=rss",
+      "source": "Fast Company — Leadership",
+      "topics": [
+        "leadership",
+        "focus"
+      ],
+      "message_id": 35
+    }
+  },
   "last_update_id": 158813816
 }
