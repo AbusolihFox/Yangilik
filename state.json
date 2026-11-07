@@ -272,7 +272,7 @@
     }
   },
   "source_scores": {
-    "Fast Company — Leadership": 23,
+    "Fast Company — Leadership": 24,
     "MIT Sloan Management Review": -1
   },
   "topic_scores": {
@@ -280,10 +280,10 @@
     "habits": 1,
     "productivity": 5,
     "burnout": 0,
-    "focus": 22,
+    "focus": 23,
     "mindset": 2,
     "management": 9,
-    "leadership": 24,
+    "leadership": 25,
     "resilience": 3,
     "employee engagement": 2,
     "discipline": 4,
@@ -292,16 +292,6 @@
     "ego": 8,
     "motivation": 2
   },
-  "pending_feedback": {
-    "cac75765f6": {
-      "url": "https://www.fastcompany.com/91632374/customer-obsession-done-with-a-twinkle-in-your-eye?partner=rss&utm_source=rss&utm_medium=feed&utm_campaign=rss+fastcompany&utm_content=rss",
-      "source": "Fast Company — Leadership",
-      "topics": [
-        "leadership",
-        "focus"
-      ],
-      "message_id": 35
-    }
-  },
+  "pending_feedback": {},
   "last_update_id": 158813816
 }
