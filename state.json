@@ -269,6 +269,16 @@
         "leadership",
         "focus"
       ]
+    },
+    "https://www.fastcompany.com/91634040/your-company-probably-saw-problem-coming-heres-why-got-blindsided-anyway?partner=rss&utm_source=rss&utm_medium=feed&utm_campaign=rss+fastcompany&utm_content=rss": {
+      "date": "2026-11-04T16:30:00+00:00",
+      "source": "Fast Company — Leadership",
+      "topics": [
+        "leadership",
+        "management",
+        "discipline",
+        "ego"
+      ]
     }
   },
   "source_scores": {
@@ -292,6 +302,18 @@
     "ego": 8,
     "motivation": 2
   },
-  "pending_feedback": {},
+  "pending_feedback": {
+    "dba3152276": {
+      "url": "https://www.fastcompany.com/91634040/your-company-probably-saw-problem-coming-heres-why-got-blindsided-anyway?partner=rss&utm_source=rss&utm_medium=feed&utm_campaign=rss+fastcompany&utm_content=rss",
+      "source": "Fast Company — Leadership",
+      "topics": [
+        "leadership",
+        "management",
+        "discipline",
+        "ego"
+      ],
+      "message_id": 36
+    }
+  },
   "last_update_id": 158813816
 }
