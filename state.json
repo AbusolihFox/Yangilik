@@ -282,7 +282,7 @@
     }
   },
   "source_scores": {
-    "Fast Company — Leadership": 24,
+    "Fast Company — Leadership": 25,
     "MIT Sloan Management Review": -1
   },
   "topic_scores": {
@@ -292,28 +292,16 @@
     "burnout": 0,
     "focus": 23,
     "mindset": 2,
-    "management": 9,
-    "leadership": 25,
+    "management": 10,
+    "leadership": 26,
     "resilience": 3,
     "employee engagement": 2,
-    "discipline": 4,
+    "discipline": 5,
     "emotional intelligence": 3,
     "accountability": 4,
-    "ego": 8,
+    "ego": 9,
     "motivation": 2
   },
-  "pending_feedback": {
-    "dba3152276": {
-      "url": "https://www.fastcompany.com/91634040/your-company-probably-saw-problem-coming-heres-why-got-blindsided-anyway?partner=rss&utm_source=rss&utm_medium=feed&utm_campaign=rss+fastcompany&utm_content=rss",
-      "source": "Fast Company — Leadership",
-      "topics": [
-        "leadership",
-        "management",
-        "discipline",
-        "ego"
-      ],
-      "message_id": 36
-    }
-  },
+  "pending_feedback": {},
   "last_update_id": 158813816
 }
