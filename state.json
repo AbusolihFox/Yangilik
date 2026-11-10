@@ -291,7 +291,7 @@
     }
   },
   "source_scores": {
-    "Fast Company — Leadership": 25,
+    "Fast Company — Leadership": 26,
     "MIT Sloan Management Review": -1
   },
   "topic_scores": {
@@ -299,10 +299,10 @@
     "habits": 1,
     "productivity": 5,
     "burnout": 0,
-    "focus": 23,
+    "focus": 24,
     "mindset": 2,
-    "management": 10,
-    "leadership": 26,
+    "management": 11,
+    "leadership": 27,
     "resilience": 3,
     "employee engagement": 2,
     "discipline": 5,
@@ -311,17 +311,6 @@
     "ego": 9,
     "motivation": 2
   },
-  "pending_feedback": {
-    "59ed2fd448": {
-      "url": "https://www.fastcompany.com/91638680/nvidia-is-investigating-jensen-huang-but-its-board-may-have-no-interest-in-challenging-its-leader?partner=rss&utm_source=rss&utm_medium=feed&utm_campaign=rss+fastcompany&utm_content=rss",
-      "source": "Fast Company — Leadership",
-      "topics": [
-        "leadership",
-        "management",
-        "focus"
-      ],
-      "message_id": 37
-    }
-  },
+  "pending_feedback": {},
   "last_update_id": 158813816
 }
