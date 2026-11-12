@@ -288,6 +288,14 @@
         "management",
         "focus"
       ]
+    },
+    "https://www.fastcompany.com/91638739/how-to-succeed-and-thrive-as-co-ceos?partner=rss&utm_source=rss&utm_medium=feed&utm_campaign=rss+fastcompany&utm_content=rss": {
+      "date": "2026-11-11T20:00:00+00:00",
+      "source": "Fast Company — Leadership",
+      "topics": [
+        "leadership",
+        "focus"
+      ]
     }
   },
   "source_scores": {
@@ -311,6 +319,16 @@
     "ego": 9,
     "motivation": 2
   },
-  "pending_feedback": {},
+  "pending_feedback": {
+    "df000dd9cc": {
+      "url": "https://www.fastcompany.com/91638739/how-to-succeed-and-thrive-as-co-ceos?partner=rss&utm_source=rss&utm_medium=feed&utm_campaign=rss+fastcompany&utm_content=rss",
+      "source": "Fast Company — Leadership",
+      "topics": [
+        "leadership",
+        "focus"
+      ],
+      "message_id": 38
+    }
+  },
   "last_update_id": 158813816
 }
