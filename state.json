@@ -299,7 +299,7 @@
     }
   },
   "source_scores": {
-    "Fast Company — Leadership": 26,
+    "Fast Company — Leadership": 27,
     "MIT Sloan Management Review": -1
   },
   "topic_scores": {
@@ -307,10 +307,10 @@
     "habits": 1,
     "productivity": 5,
     "burnout": 0,
-    "focus": 24,
+    "focus": 25,
     "mindset": 2,
     "management": 11,
-    "leadership": 27,
+    "leadership": 28,
     "resilience": 3,
     "employee engagement": 2,
     "discipline": 5,
@@ -319,16 +319,6 @@
     "ego": 9,
     "motivation": 2
   },
-  "pending_feedback": {
-    "df000dd9cc": {
-      "url": "https://www.fastcompany.com/91638739/how-to-succeed-and-thrive-as-co-ceos?partner=rss&utm_source=rss&utm_medium=feed&utm_campaign=rss+fastcompany&utm_content=rss",
-      "source": "Fast Company — Leadership",
-      "topics": [
-        "leadership",
-        "focus"
-      ],
-      "message_id": 38
-    }
-  },
+  "pending_feedback": {},
   "last_update_id": 158813816
 }
